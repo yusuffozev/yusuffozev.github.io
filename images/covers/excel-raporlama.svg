@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1672" height="941" viewBox="0 0 1672 941">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0d1b18"/>
+      <stop offset="100%" stop-color="#16483a"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="80%" cy="25%" r="65%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity=".13"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1672" height="941" fill="url(#bg)"/>
+  <rect x="70" y="70" width="1532" height="800" rx="38" fill="#071321" opacity=".72" stroke="#ffffff" stroke-opacity=".12"/>
+  <rect width="1672" height="941" fill="url(#glow)"/>
+  <g opacity=".10" stroke="#ffffff" stroke-width="1">
+    <path d="M120 120 H1570"/><path d="M120 220 H1570"/><path d="M120 320 H1570"/>
+    <path d="M120 420 H1570"/><path d="M120 520 H1570"/><path d="M120 620 H1570"/>
+    <path d="M120 720 H1570"/><path d="M120 820 H1570"/>
+    <path d="M180 90 V860"/><path d="M300 90 V860"/><path d="M420 90 V860"/>
+    <path d="M540 90 V860"/><path d="M660 90 V860"/><path d="M780 90 V860"/>
+    <path d="M900 90 V860"/><path d="M1020 90 V860"/><path d="M1140 90 V860"/>
+    <path d="M1260 90 V860"/><path d="M1380 90 V860"/><path d="M1500 90 V860"/>
+  </g>
+  <circle cx="1460" cy="120" r="260" fill="#ffffff" opacity=".055"/>
+  <circle cx="1500" cy="760" r="365" fill="#ffffff" opacity=".04"/>
+  <text x="155" y="205" fill="#7fe3a1" font-family="Arial, Helvetica, sans-serif" font-size="34" font-weight="800" letter-spacing="5">Excel</text>
+  <text x="155" y="300" fill="#ffffff" font-family="Arial, Helvetica, sans-serif" font-size="96" font-weight="900">Raporlama</text>
+  <rect x="155" y="720" width="150" height="132" rx="24" fill="#0e2430" stroke="#7fe3a1" stroke-opacity=".42"/>
+  <text x="230" y="802" text-anchor="middle" fill="#7fe3a1" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="900">XL</text>
+</svg>
