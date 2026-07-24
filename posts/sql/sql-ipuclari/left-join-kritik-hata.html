@@ -1,0 +1,24 @@
+<!DOCTYPE html><html lang="tr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><link rel="stylesheet" href="/assets/css/main.css"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><meta name="description" content="LEFT JOIN kullanırken WHERE koşulunun yanlış yerde kullanılması, sorgunun beklenmedik şekilde INNER JOIN gibi çalışmasına neden olabilir."><meta property="og:image" content="https://yusuffozev.github.io/assets/images/logo.svg"><meta property="og:title" content="LEFT JOIN Kullanırken Yapılan Kritik Hata | Yusuf Özev"><meta property="og:description" content="LEFT JOIN kullanırken WHERE koşulunun yanlış yerde kullanılması, sorgunun beklenmedik şekilde INNER JOIN gibi çalışmasına neden olabilir."><meta property="og:type" content="article"><title>LEFT JOIN Kullanırken Yapılan Kritik Hata | Yusuf Özev</title></head><body><header class="site-header"><div class="container nav-container"><a class="brand" href="/"><img class="brand-icon" src="/assets/images/logo.svg" alt="YO" width="36" height="36"><span class="brand-text">Yusuf Özev</span></a><button class="mobile-menu-button" aria-label="Menüyü aç/kapat">☰</button><nav class="main-nav" id="mainNav"><a class="nav-link" href="/">Ana Sayfa</a></nav><div class="header-actions"><a class="contact-button" href="/iletisim.html">İletişim</a></div></div></header><main><article class="article-page page-top"><div class="container narrow"><div class="article-header"><div class="page-kicker">SQL / SQL İpuçları</div><h1>LEFT JOIN Kullanırken Yapılan Kritik Hata</h1><p>LEFT JOIN kullanırken WHERE koşulunun yanlış yerde kullanılması, sorgunun beklenmedik şekilde INNER JOIN gibi çalışmasına neden olabilir.</p><div class="post-meta">2026-06-08 • 6 dk</div></div><div class="article-content"><h2>LEFT JOIN Ne İşe Yarar?</h2><p>LEFT JOIN, sol taraftaki tablonun tüm kayıtlarını getirir. Sağ taraftaki tabloda eşleşen kayıt varsa bu bilgiler de sonuca eklenir. Eğer sağ tabloda eşleşen kayıt yoksa, sağ tablodan gelen alanlar NULL olarak görünür.</p><p>Bu yüzden LEFT JOIN özellikle "satışı olmayan müşterileri de göster", "siparişi olmayan ürünleri de listele" gibi durumlarda kullanılır.</p><h2>Hatalı Kullanım</h2><p>Aşağıdaki sorguda tüm müşterileri listelemek istiyoruz. Fakat sadece 2026 yılındaki satışları görmek için WHERE koşulu ekliyoruz.</p>
+ <pre><code>SELECT
+  m.MusteriAdi,
+  s.SatisTarihi
+FROM Musteriler m
+LEFT JOIN Satislar s
+  ON m.MusteriID = s.MusteriID
+WHERE s.SatisTarihi >= '2026-01-01';</code></pre><p>İlk bakışta bu sorgu doğru gibi görünür. Ancak burada önemli bir sorun vardır.</p><h2>Sorun Nerede?</h2><p>Satışı olmayan müşterilerde <code>s.SatisTarihi</code> değeri NULL olur. WHERE koşulu ise NULL değerleri elediği için, satışı olmayan müşteriler sonuçtan çıkar.</p><p>Yani LEFT JOIN kullanmamıza rağmen sorgu pratikte INNER JOIN gibi davranmaya başlar.</p><h2>Doğru Kullanım</h2><p>Sağ tabloya ait filtreyi WHERE kısmına değil, JOIN koşulunun içine yazmak daha doğru olur.</p>
+ <pre><code>SELECT
+  m.MusteriAdi,
+  s.SatisTarihi
+FROM Musteriler m
+LEFT JOIN Satislar s
+  ON m.MusteriID = s.MusteriID
+  AND s.SatisTarihi >= '2026-01-01';</code></pre><p>Bu sorguda tüm müşteriler listelenir. Eğer müşterinin 2026 yılına ait satışı varsa satış tarihi görünür. Eğer yoksa satış tarihi NULL olarak kalır.</p><h2>WHERE Ne Zaman Kullanılır?</h2><p>Sol tabloyu filtrelemek istiyorsan WHERE kullanabilirsin.</p>
+ <pre><code>SELECT
+  m.MusteriAdi,
+  s.SatisTarihi
+FROM Musteriler m
+LEFT JOIN Satislar s
+  ON m.MusteriID = s.MusteriID
+WHERE m.Sehir = 'İstanbul';</code></pre><p>Bu örnekte filtre sol tablo olan <code>Musteriler</code> tablosuna uygulanır. Bu nedenle LEFT JOIN mantığını bozmaz.</p><h2>Kısa Özet</h2><ul><li>LEFT JOIN sol tablodaki tüm kayıtları korur.</li><li>Sağ tablodaki kolonları WHERE içinde filtrelemek bazı kayıtları silebilir.</li><li>Sağ tabloya ait koşullar çoğu zaman ON kısmına yazılmalıdır.</li><li>Bu hata özellikle raporlama sorgularında yanlış sonuçlara neden olabilir.</li></ul><h2>Sonuç</h2><p>LEFT JOIN kullanırken filtrelerin nereye yazıldığı çok önemlidir. Eğer amacın sol tablodaki tüm kayıtları korumaksa, sağ tabloya ait koşulları WHERE yerine ON bölümünde kullanmak daha güvenlidir.</p></div><a class="back-link" href="/yazilar.html"><span>← Tüm Yazılar</span></a></div></article></main><footer class="site-footer"><div class="container footer-inner"><p>© 2026. Tüm hakları saklıdır.</p><div class="footer-links"><a href="https://github.com/yusuffozev" target="_blank" rel="noopener">GitHub</a><a href="#" target="_blank" rel="noopener">LinkedIn</a><a href="mailto:info@yusufozev.com.tr">Mail</a></div></div></footer>
+<script src="/assets/js/main.js"></script>
+</body></html>
