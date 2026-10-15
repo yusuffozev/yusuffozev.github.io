@@ -34,6 +34,7 @@ const PUBLISH_ENTRIES = [
   "kategoriler",
   "posts",
   "projects",
+  "assets",
   ".nojekyll"
 ];
 

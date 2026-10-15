@@ -1,1 +1,16 @@
-[]
+[
+  {
+    "title": "Normal Dağılımda Ortalama, Medyan ve Mod Nasıl Değişir?",
+    "category": "Python",
+    "categorySlug": "python",
+    "subcategory": "Python ile İstatistik",
+    "subcategorySlug": "python-ile-istatistik",
+    "description": "Çarpıklık arttıkça ortalama, medyan ve mod birbirinden nasıl ayrılır? Etkileşimli grafikle simetrik, sağa ve sola çarpık dağılımı karşılaştırın.",
+    "date": "2026-10-15",
+    "createdAt": "2026-10-15T10:30:00.000Z",
+    "readTime": "8 dk",
+    "cover": "python",
+    "image": "/images/covers/post-normal-dagilim-ortalama-medyan-mod.svg",
+    "url": "posts/python/python-ile-istatistik/normal-dagilim-ortalama-medyan-mod.html"
+  }
+]
