@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 600 340" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="csqlmv6froe8-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f3e6d8"/>
+      <stop offset="100%" stop-color="#e8d2bc"/>
+    </linearGradient>
+    <linearGradient id="csqlmv6froe8-accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#e8614a"/>
+      <stop offset="100%" stop-color="#d4a853"/>
+    </linearGradient>
+  </defs>
+  <rect width="600" height="340" fill="url(#csqlmv6froe8-bg)"/>
+  <circle cx="520" cy="80" r="200" fill="#e8614a" opacity=".06"/>
+  <circle cx="50" cy="300" r="150" fill="#d4a853" opacity=".04"/>
+  <rect x="0" y="0" width="600" height="4" fill="url(#csqlmv6froe8-accent)"/>
+  
+    <g opacity=".04" stroke="#e8614a" stroke-width="1">
+      <path d="M0 80 H600"/><path d="M0 160 H600"/><path d="M0 240 H600"/><path d="M0 300 H600"/>
+      <path d="M100 0 V340"/><path d="M220 0 V340"/><path d="M340 0 V340"/><path d="M460 0 V340"/>
+    </g>
+  
+      <g transform="translate(465 220)" opacity=".18" fill="none" stroke="#e8614a" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 90 A 50 50 0 0 1 120 90"/>
+        <path d="M70 90 L98 48"/>
+        <circle cx="70" cy="90" r="5" fill="#e8614a" fill-opacity=".2" stroke="none"/>
+      </g>
+  <text x="300" y="120" text-anchor="middle" fill="#e8614a" font-family="Arial, sans-serif" font-size="18" font-weight="800" letter-spacing="5">ALT KATEGORI</text>
+  <text x="300" y="210" text-anchor="middle" fill="#1a1410" font-family="Georgia, serif" font-size="60" font-weight="700">Performans</text>
+  
+  <rect x="500" y="268" width="60" height="48" rx="10" fill="#fff" stroke="#e8614a" stroke-opacity=".28"/>
+  <text x="530" y="299" text-anchor="middle" fill="#e8614a" font-family="Arial, sans-serif" font-size="18" font-weight="900">DB</text>
+</svg>

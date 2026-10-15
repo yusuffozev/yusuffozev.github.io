@@ -1,0 +1,84 @@
+[
+  {
+    "title": "SQL",
+    "slug": "sql",
+    "order": 1,
+    "children": [
+      {
+        "title": "Sorgu Örnekleri",
+        "slug": "sorgu-ornekleri",
+        "image": "/images/covers/sql-sorgu-ornekleri.svg"
+      },
+      {
+        "title": "SQL İpuçları",
+        "slug": "sql-ipuclari",
+        "image": "/images/covers/sql-sql-ipuclari.svg"
+      },
+      {
+        "title": "Performans",
+        "slug": "performans",
+        "image": "/images/covers/sql-performans.svg"
+      }
+    ],
+    "image": "/images/covers/sql-category.svg"
+  },
+  {
+    "title": "Python",
+    "slug": "python",
+    "order": 2,
+    "children": [
+      {
+        "title": "Python ile İstatistik",
+        "slug": "python-ile-istatistik",
+        "image": "/images/covers/python-python-ile-istatistik.svg"
+      },
+      {
+        "title": "Veri Analizi",
+        "slug": "veri-analizi",
+        "image": "/images/covers/python-veri-analizi.svg"
+      },
+      {
+        "title": "Makine Öğrenmesi",
+        "slug": "makine-ogrenmesi",
+        "image": "/images/covers/python-makine-ogrenmesi.svg"
+      }
+    ],
+    "image": "/images/covers/python-category.svg"
+  },
+  {
+    "title": "Power BI",
+    "slug": "power-bi",
+    "order": 3,
+    "children": [
+      {
+        "title": "DAX",
+        "slug": "dax",
+        "image": "/images/covers/power-bi-dax.svg"
+      },
+      {
+        "title": "Dashboard",
+        "slug": "dashboard",
+        "image": "/images/covers/power-bi-dashboard.svg"
+      }
+    ],
+    "image": "/images/covers/power-bi-category.svg"
+  },
+  {
+    "title": "Excel",
+    "slug": "excel",
+    "order": 4,
+    "children": [
+      {
+        "title": "Formüller",
+        "slug": "formuller",
+        "image": "/images/covers/excel-formuller.svg"
+      },
+      {
+        "title": "Raporlama",
+        "slug": "raporlama",
+        "image": "/images/covers/excel-raporlama.svg"
+      }
+    ],
+    "image": "/images/covers/excel-category.svg"
+  }
+]
