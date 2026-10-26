@@ -5,6 +5,8 @@ const DATA_PATHS = {
   comments: "/data/comments.json"
 };
 
+const COMMENT_INBOX = "https://crudcrud.com/api/1d7c5020f32c4230b2a972247cd8842c/comments";
+
 async function fetchJson(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`${path} yüklenemedi`);
@@ -367,6 +369,9 @@ async function setupComments() {
 
   const heading = document.createElement("h2");
   heading.textContent = "Yorumlar";
+  const lead = document.createElement("p");
+  lead.className = "comment-lead";
+  lead.textContent = "Yorum onaylandıktan sonra yayınlanır.";
 
   const list = document.createElement("div");
   list.className = "comment-list";
@@ -379,7 +384,91 @@ async function setupComments() {
     comments.forEach((comment) => list.append(commentCard(comment)));
   }
 
-  root.replaceChildren(heading, list);
+  const form = document.createElement("form");
+  form.className = "comment-form";
+  const honey = document.createElement("input");
+  honey.className = "comment-honey";
+  honey.type = "text";
+  honey.name = "_honey";
+  honey.tabIndex = -1;
+  honey.autocomplete = "off";
+  honey.setAttribute("aria-hidden", "true");
+
+  const nameLabel = document.createElement("label");
+  nameLabel.append("Ad");
+  const nameInput = document.createElement("input");
+  nameInput.name = "Ad";
+  nameInput.required = true;
+  nameInput.minLength = 2;
+  nameInput.maxLength = 32;
+  nameInput.autocomplete = "name";
+  nameInput.placeholder = "Adın";
+  nameLabel.append(nameInput);
+
+  const bodyLabel = document.createElement("label");
+  bodyLabel.append("Yorum");
+  const bodyInput = document.createElement("textarea");
+  bodyInput.name = "Yorum";
+  bodyInput.required = true;
+  bodyInput.minLength = 2;
+  bodyInput.maxLength = 2000;
+  bodyInput.placeholder = "Yorumunu yaz";
+  bodyLabel.append(bodyInput);
+
+  const button = document.createElement("button");
+  button.type = "submit";
+  button.textContent = "Yorumu gönder";
+  const status = document.createElement("p");
+  status.className = "comment-status";
+  form.append(honey, nameLabel, bodyLabel, button, status);
+
+  form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    status.textContent = "";
+    if (honey.value) return;
+
+    const username = nameInput.value.replace(/\s+/g, " ").trim();
+    const body = bodyInput.value.replace(/\r\n/g, "\n").trim();
+    if (username.length < 2 || username.length > 32) {
+      status.textContent = "Ad 2–32 karakter olmalı.";
+      return;
+    }
+    if (!/^[\p{L}\p{N} ._'-]+$/u.test(username)) {
+      status.textContent = "Ad sadece harf, rakam ve boşluk içerebilir.";
+      return;
+    }
+    if (body.length < 2 || body.length > 2000) {
+      status.textContent = "Yorum 2–2000 karakter olmalı.";
+      return;
+    }
+    if (/[<>]/.test(body)) {
+      status.textContent = "Yorum HTML içeremez.";
+      return;
+    }
+
+    button.disabled = true;
+    try {
+      const response = await fetch(COMMENT_INBOX, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          postUrl: key,
+          username,
+          body,
+          createdAt: new Date().toISOString()
+        })
+      });
+      if (!response.ok) throw new Error("save failed");
+      form.reset();
+      status.textContent = "Yorumun alındı. Onaylandıktan sonra burada görünecek.";
+    } catch {
+      status.textContent = "Yorum gönderilemedi. Biraz sonra tekrar dene.";
+    } finally {
+      button.disabled = false;
+    }
+  });
+
+  root.replaceChildren(heading, lead, list, form);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
