@@ -195,26 +195,3 @@ main .container{width:min(1040px,calc(100% - 80px))}
   .hero{padding:48px 0 32px}
   .hero h1{font-size:30px}
 }
-
-.post-comments{margin-top:48px}
-.post-comments h2{font-family:'DM Serif Display',serif;font-size:28px;font-weight:400;letter-spacing:-.02em;margin:0 0 6px}
-.comment-lead,.comment-empty{color:var(--text-2);font-size:14.5px;margin:0 0 18px}
-.comment-list{display:grid;gap:12px;margin:0 0 22px}
-.comment-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px}
-.comment-user{display:flex;gap:10px;align-items:center;margin-bottom:8px}
-.comment-avatar{width:36px;height:36px;border-radius:50%;display:grid;place-items:center;background:rgba(232,97,74,.12);color:var(--accent-dark);font-weight:800;font-size:14px;flex:none}
-.comment-user strong{display:block;font-size:15px;line-height:1.2}
-.comment-user time{color:var(--muted);font-size:12px}
-.comment-body,.comment-reply p{margin:0;white-space:pre-wrap;line-height:1.6}
-.comment-body{font-size:15.5px}
-.comment-reply{margin-top:12px;padding:12px 14px;border-radius:10px;background:var(--surface-2);border-left:3px solid var(--accent-2)}
-.comment-reply span{display:block;font-size:12px;font-weight:800;letter-spacing:.02em;color:var(--accent-2);margin-bottom:4px}
-.comment-reply p{font-size:15px;color:var(--text)}
-.comment-form{display:grid;gap:12px;padding:18px;border:1px solid var(--border);border-radius:14px;background:var(--surface)}
-.comment-form label{display:grid;gap:6px;font-size:13px;font-weight:700;color:var(--text-2)}
-.comment-form input,.comment-form textarea{width:100%;border:1px solid var(--border-2);border-radius:10px;padding:12px 14px;background:#fff;color:var(--text);font:inherit}
-.comment-form textarea{min-height:120px;resize:vertical}
-.comment-form button{justify-self:start;height:44px;padding:0 22px;border:0;border-radius:10px;background:var(--accent);color:#fff;font-weight:700;cursor:pointer}
-.comment-form button:hover{background:var(--accent-dark)}
-.comment-honey{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-.comment-status{min-height:1.2em;margin:0;font-size:14px;color:var(--accent-2)}
