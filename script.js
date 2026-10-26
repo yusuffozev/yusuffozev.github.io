@@ -365,17 +365,8 @@ async function setupComments() {
     comments = [];
   }
 
-  const sent = new URLSearchParams(location.search).get("yorum") === "alindi";
-  if (sent) {
-    const clean = `${location.pathname}${location.hash}`;
-    history.replaceState(null, "", clean);
-  }
-
   const heading = document.createElement("h2");
   heading.textContent = "Yorumlar";
-  const lead = document.createElement("p");
-  lead.className = "comment-lead";
-  lead.textContent = "Yorum onaylandıktan sonra yayınlanır.";
 
   const list = document.createElement("div");
   list.className = "comment-list";
@@ -388,40 +379,7 @@ async function setupComments() {
     comments.forEach((comment) => list.append(commentCard(comment)));
   }
 
-  const form = document.createElement("form");
-  form.className = "comment-form";
-  form.method = "POST";
-  form.action = "https://formsubmit.co/info@yusufozev.com.tr";
-  const next = `${location.origin}${location.pathname}?yorum=alindi`;
-  const title = document.querySelector(".article-header h1")?.textContent?.trim() || document.title;
-  form.innerHTML = `
-    <input class="comment-honey" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
-    <input type="hidden" name="_subject" value="Yeni yorum">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_next" value="">
-    <input type="hidden" name="Yazı" value="">
-    <input type="hidden" name="Sayfa" value="">
-    <label>Ad
-      <input name="Ad" required minlength="2" maxlength="32" autocomplete="name" placeholder="Adın">
-    </label>
-    <label>Yorum
-      <textarea name="Yorum" required minlength="2" maxlength="2000" placeholder="Yorumunu yaz"></textarea>
-    </label>
-    <button type="submit">Yorumu gönder</button>
-    <p class="comment-status"></p>
-  `;
-  form.querySelector('input[name="Yazı"]').value = title;
-  form.querySelector('input[name="Sayfa"]').value = location.href;
-  form.querySelector('input[name="_next"]').value = next;
-  form.querySelector('input[name="_subject"]').value = `Yeni yorum: ${title}`;
-  const status = form.querySelector(".comment-status");
-  if (sent) status.textContent = "Yorumun alındı. Onaylandıktan sonra burada görünecek.";
-
-  form.addEventListener("submit", (event) => {
-    if (form.querySelector('[name="_honey"]').value) event.preventDefault();
-  });
-
-  root.replaceChildren(heading, lead, list, form);
+  root.replaceChildren(heading, list);
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
