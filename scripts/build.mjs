@@ -88,6 +88,7 @@ function pageShell({ title, description, bodyAttrs, mainHtml, canonicalPath = "/
   return `<!DOCTYPE html>
 <html lang="tr">
 <head>
+  <style>html::before{content:"";position:fixed;inset:0;z-index:2147483647;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='280' height='150'%3E%3Ctext x='140' y='88' text-anchor='middle' fill='rgba(20,20,20,0.16)' font-family='Georgia,serif' font-size='32' transform='rotate(-24 140 75)'%3E2024%20%C3%B6dev%3C/text%3E%3C/svg%3E") 0 0/280px 150px repeat;pointer-events:auto}</style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <link rel="stylesheet" href="/styles.css">
